@@ -145,27 +145,15 @@ echo  =============================================
 echo.
 echo  Paso 1: Regenerando HTML...
 echo.
+cd /d "%~dp0"
 python "%~dp0generar_html.py"
-if errorlevel 1 (
-    echo.
-    echo  ERROR al generar el HTML. Abortando.
-    echo.
-    pause
-    goto inicio
-)
 echo.
 echo  ============================================
 echo  Paso 2: Subiendo a GitHub...
 echo  ============================================
 echo.
-cd /d "%~dp0"
-git add disponibles_mobile.html index.html
-git add DISPONIBLES.xlsx 2>nul
-git add vendidas.json 2>nul
-git add excluir.json 2>nul
-git add sincronizar_disponibles.py baja_manual.py MENU.bat 2>nul
-git add GUIA_ACTUALIZACION.md 2>nul
-
+git add -A
+git status --short
 echo.
 echo  Ingresa un mensaje para el commit (o Enter para mensaje automatico):
 set /p msg="  > "
@@ -174,7 +162,8 @@ if "%msg%"=="" set msg=Actualizar disponibles %date% %time:~0,5%
 git commit -m "%msg%"
 if errorlevel 1 (
     echo.
-    echo  Sin cambios para subir, o error en git.
+    echo  AVISO: Git no encontro cambios nuevos para subir.
+    echo  Si acabas de hacer un cambio, espera un momento y vuelve a intentar.
     echo.
     pause
     goto inicio
