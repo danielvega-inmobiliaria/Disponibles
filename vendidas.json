@@ -1,0 +1,20 @@
+[
+  {
+    "fecha_baja": "2026-06-15T19:27:46",
+    "motivo": "venta",
+    "empresa": "M2",
+    "unidad": "09-03",
+    "proyecto": "",
+    "ubicacion": "Moreno 323",
+    "zona": "Centro",
+    "etapa": "En construcción",
+    "entrega": "2031-03-01 00:00:00",
+    "tipo": "3 Dormitorios",
+    "sup_cub": 124.0,
+    "sup_total": 176.0,
+    "precio_lista": 460768.0000000001,
+    "precio_cont": 418880.0,
+    "oportunidad": "Media",
+    "notas": ""
+  }
+]
