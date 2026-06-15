@@ -1,0 +1,14 @@
+# Imagenes (ya embebidas en el HTML, no hace falta subirlas)
+IMAGENES/
+
+# Backups de Excel generados automaticamente
+DISPONIBLES_bak_*.xlsx
+DISPONIBLES_actualizado_*.xlsx
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Windows
+Thumbs.db
+desktop.ini
