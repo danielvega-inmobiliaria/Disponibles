@@ -584,4 +584,3 @@ if __name__ == "__main__":
         import traceback
         print(f"\n  ERROR INESPERADO: {e}")
         traceback.print_exc()
-    input("\nPresiona Enter para cerrar...")
