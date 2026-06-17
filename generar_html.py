@@ -147,7 +147,7 @@ def read_disponibles(filepath):
 
 
 def find_disp_file():
-    base = os.path.join(DESARROLLOS_DIR, "DISPONIBLES.xlsx")
+    base = os.path.join(DISPONIBLES_DIR, "DISPONIBLES.xlsx")
     print(f"  Usando: DISPONIBLES.xlsx")
     return base
 

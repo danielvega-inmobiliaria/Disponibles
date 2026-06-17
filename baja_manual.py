@@ -19,7 +19,7 @@ from datetime import datetime
 # ─── RUTAS ────────────────────────────────────────────────────────────────────
 DISPONIBLES_DIR = os.path.dirname(os.path.abspath(__file__))
 DESARROLLOS_DIR = os.path.dirname(DISPONIBLES_DIR)
-DISP_FILE       = os.path.join(DESARROLLOS_DIR, "DISPONIBLES.xlsx")
+DISP_FILE       = os.path.join(DISPONIBLES_DIR, "DISPONIBLES.xlsx")
 HISTORIAL_FILE  = os.path.join(DISPONIBLES_DIR, "vendidas.json")
 
 # ─── COLUMNAS EN DISPONIBLES.xlsx (0-based) ───────────────────────────────────

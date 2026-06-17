@@ -12,7 +12,7 @@ import os
 DISPONIBLES_DIR = os.path.dirname(os.path.abspath(__file__))
 DESARROLLOS_DIR = os.path.dirname(DISPONIBLES_DIR)
 
-DISP_FILE   = os.path.join(DESARROLLOS_DIR, "DISPONIBLES.xlsx")
+DISP_FILE   = os.path.join(DISPONIBLES_DIR, "DISPONIBLES.xlsx")
 M2_FILE     = os.path.join(DESARROLLOS_DIR, "M2 DESARROLLOS", "LISTAS DE PRECIO", "Lista de precios Mayo 2026.xlsx")
 OBRING_FILE = os.path.join(DESARROLLOS_DIR, "OBRING", "OBRING MAYO 2026.xlsx")
 
