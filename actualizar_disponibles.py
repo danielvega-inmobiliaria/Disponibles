@@ -16,14 +16,14 @@ DISP_FILE   = os.path.join(DISPONIBLES_DIR, "DISPONIBLES.xlsx")
 M2_FILE     = os.path.join(DESARROLLOS_DIR, "M2 DESARROLLOS", "LISTAS DE PRECIO", "Lista de precios Mayo 2026.xlsx")
 OBRING_FILE = os.path.join(DESARROLLOS_DIR, "OBRING", "OBRING MAYO 2026.xlsx")
 
-# Columnas de DISPONIBLES (0-based)
+# Columnas de DISPONIBLES (0-based, sin columna PROYECTO)
 COL_EMPRESA      = 1
-COL_UNIDAD       = 8
-COL_PRECIO_LISTA = 16
-COL_PRECIO_CONT  = 17
-COL_USD_M2       = 18
-COL_SUP_CUB      = 11
-COL_SUP_TOTAL    = 15
+COL_UNIDAD       = 7
+COL_PRECIO_LISTA = 15
+COL_PRECIO_CONT  = 16
+COL_USD_M2       = 17
+COL_SUP_CUB      = 10
+COL_SUP_TOTAL    = 14
 
 
 def parse_price(v):

@@ -27,18 +27,18 @@ EXCLUIR_FILE    = os.path.join(DISPONIBLES_DIR, "excluir.json")
 
 # ─── COLUMNAS EN DISPONIBLES.xlsx (0-based) ───────────────────────────────────
 C_EMPRESA      = 1
-C_PROYECTO     = 2
-C_ZONA         = 4
-C_UBICACION    = 5
-C_ETAPA        = 6
-C_ENTREGA      = 7
-C_UNIDAD       = 8
-C_TIPO         = 9
-C_SUP_CUB      = 11
-C_SUP_TOTAL    = 15
-C_PRECIO_LISTA = 16
-C_PRECIO_CONT  = 17
-C_USD_M2       = 18
+# C_PROYECTO eliminado — se usa UBICACIÓN como identificador
+C_ZONA         = 3
+C_UBICACION    = 4
+C_ETAPA        = 5
+C_ENTREGA      = 6
+C_UNIDAD       = 7
+C_TIPO         = 8
+C_SUP_CUB      = 10
+C_SUP_TOTAL    = 14
+C_PRECIO_LISTA = 15
+C_PRECIO_CONT  = 16
+C_USD_M2       = 17
 
 
 # ─── UTILIDADES ───────────────────────────────────────────────────────────────
@@ -228,7 +228,6 @@ def read_disponibles():
         props.append({
             "fila":         i,
             "empresa":      empresa,
-            "proyecto":     str(row[C_PROYECTO]  or "").strip(),
             "zona":         str(row[C_ZONA]       or "").strip(),
             "ubicacion":    str(row[C_UBICACION]  or "").strip(),
             "unidad":       unidad,
@@ -415,7 +414,7 @@ def sincronizar():
         print(f"  {'-'*8} {'-'*12} {'-'*20} {'-'*14} {'-'*14}")
         for c in cambios_precio:
             p = c["prop"]
-            ref = (p["ubicacion"] or p["proyecto"])[:20]
+            ref = p["ubicacion"][:20]
             print(f"  {p['empresa']:<8} {p['unidad']:<12} {ref:<20} "
                   f"{fmt_precio(c['cont_vieja']):<14} {fmt_precio(c['cont_nueva']):<14}")
 
@@ -425,7 +424,7 @@ def sincronizar():
         print(f"  {'#':<4} {'Empresa':<8} {'Unidad':<12} {'Ub./Proyecto':<25} {'Precio cont.'}")
         print(f"  {'-'*4} {'-'*8} {'-'*12} {'-'*25} {'-'*14}")
         for i, p in enumerate(desaparecidos, 1):
-            ref = (p["ubicacion"] or p["proyecto"])[:25]
+            ref = p["ubicacion"][:25]
             print(f"  {i:<4} {p['empresa']:<8} {p['unidad']:<12} {ref:<25} {fmt_precio(p['precio_cont'])}")
 
     # ── Nuevas unidades: decidir ahora mismo ─────────────────────────────────
@@ -465,7 +464,7 @@ def sincronizar():
         print(f"  {'#':<4} {'Empresa':<8} {'Unidad':<14} {'Ub./Proyecto':<25} {'Precio cont.'}")
         print(f"  {'-'*4} {'-'*8} {'-'*14} {'-'*25} {'-'*14}")
         for i, p in enumerate(desaparecidos, 1):
-            ref = (p["ubicacion"] or p["proyecto"])[:25]
+            ref = p["ubicacion"][:25]
             print(f"  {i:<4} {p['empresa']:<8} {p['unidad']:<14} {ref:<25} {fmt_precio(p['precio_cont'])}")
         print(f"\n  Numeros a ELIMINAR separados por coma (ej: 1,3,5),")
         print(f"  'todos' para eliminar todas, Enter para no eliminar ninguna.")
@@ -565,7 +564,6 @@ def _guardar_historial(props, filas_eliminadas, motivo):
                 "motivo":     motivo,
                 "empresa":    p["empresa"],
                 "unidad":     p["unidad"],
-                "proyecto":   p.get("proyecto",""),
                 "ubicacion":  p.get("ubicacion",""),
                 "zona":       p.get("zona",""),
                 "tipo":       p.get("tipo",""),

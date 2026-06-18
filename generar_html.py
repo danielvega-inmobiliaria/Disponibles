@@ -12,18 +12,52 @@ DESARROLLOS_DIR = os.path.dirname(DISPONIBLES_DIR)
 IMAGENES_DIR    = os.path.join(DISPONIBLES_DIR, "IMAGENES")
 
 EDIF = {
-    "Entre Rios 430":  {"desc":"PB+13 pisos, centro de Rosario. Unidades 1, 2 y 3 dorm con balcon. Cerca del Parque Espana y el rio. Avance 90%.",            "am":["Piscina","Solarium","Quincho/parrillero","Cocheras PB","Bicicletero","Espacios verdes"]},
-    "Wilde 455 Bis":   {"desc":"Condominio 16 viviendas en Fisherton. Casas 3 y 4 dorm con pileta y parrillero, dptos y local.",                               "am":["Pileta privada","Parrillero","Jardines","Casas y dptos","Cocheras","Acceso controlado"]},
-    "Pellegrini 932":  {"desc":"Torre 14 pisos sobre Av. Pellegrini. Unidades 1 a 4 dorm y locales. 3 niveles de cocheras. Avance 45%.",                       "am":["Torre 14 pisos","3 niveles cocheras","Espacios verdes","Locales comerciales","UP-Amenities"]},
-    "Montevideo 961":  {"desc":"Edificio en Arroyito, cerca del Monumento y la costanera. Unidades 1, 2 y 3 dorm.",                                            "am":["Piscina","Solarium","Quincho","Cowork","Bicicletero","Juegos infantiles"]},
-    "Moreno 323":      {"desc":"Edificio en Espana-Hospitales. Tipologias 1, 2 y 3 dorm. Full amenities.",                                                     "am":["Piscina","Carwash","Juegos infantiles","Plazoleta","Cocheras"]},
-    "Moreno 1151":     {"desc":"Proyecto en Refineria. Unidades 1, 2 y 3 dorm.",                                                                               "am":["Piscina","Quincho","Parrilla","Gimnasio","Cocheras"]},
-    "Ituzaingo 1852":  {"desc":"Edificio en Lourdes. Departamentos 1, 2 y 3 dorm con amenities.",                                                             "am":["Piscina","Solarium","Quincho","Terraza","Bicicletero"]},
-    "Pueyrredon 1101": {"desc":"Edificio premiado internacionalmente. Pileta y solarium en pisos superiores. Laundry, bicicletero, monitoreo 24hs.",           "am":["Pileta","Solarium terraza","Quincho/parrilla","Laundry","Bicicletero","Monitoreo 24hs"]},
-    "Olive 954":       {"desc":"Rio Arriba - 28 casas panoramicas en altura a metros del Parque Alem. Patios hacia el rio. Entrega inmediata.",               "am":["Vista al rio","Casas en altura","Espacios verdes","Quincho","Piscina"]},
-    "Guemes 2285":     {"desc":"Edificio en Pichincha con vista al rio. Pisos exclusivos. Pileta y quincho. Listo para escriturar.",                           "am":["Pileta","Solarium","Quincho","Monitoreo 24hs","Vista al rio","Listo escriturar"]},
-    "Dorrego 635":     {"desc":"Oficina en 1 piso con ingreso independiente. Patio, cochera y baulera incluidos.",                                             "am":["Ingreso independiente","Cochera","Baulera","Patio propio"]},
+    "Entre Rios 430":  {"desc":"PB+13 pisos en el centro de Rosario, a metros del Parque España y el río. 1, 2 y 3 dormitorios con balcón. Terminaciones de primera línea, carpinterías de aluminio con DVH y avance del 90%.",
+                        "am":["Piscina","Solarium","Quincho con parrilla","Cocheras","Bicicletero","Espacios verdes"]},
+    "Wilde 455 Bis":   {"desc":"Condominio privado de 16 viviendas en Fisherton. Casas de 3 y 4 dormitorios con pileta y parrillero propios, departamentos y local comercial. Acceso controlado, jardines y espacios comunes de categoría.",
+                        "am":["Pileta privada por unidad","Parrillero","Jardines","Cocheras","Acceso controlado","Espacios comunes"]},
+    "Pellegrini 932":  {"desc":"P·932: torre de 14 pisos sobre Av. Pellegrini, 36 unidades de 1 a 4 dormitorios y penthouse exclusivo de 204 m² con piscina privada y gym. Seguridad VIDEO WALL 24hs, hogar inteligente y UP-Amenities en azotea y piso 1.",
+                        "am":["Piscina lounge en azotea","Quincho semicubierto","Solarium","Living fogonero","Gimnasio","Coworking","Zoom Kids","Spa con solarium","Cocheras 3 niveles","Bicicletero","Bauleras"]},
+    "Montevideo 961":  {"desc":"M·961: edificio de 9 pisos, 25 unidades de 1 a 3 dormitorios a metros de Av. Pellegrini. Balcones privados, terraza exclusiva 41 m² en piso 8, hogar inteligente con pantalla táctil y cerradura Smart.",
+                        "am":["Piscina en azotea","Quincho con parrilla","Fogonero","Gimnasio equipado","Coworking","Playroom","Crucijuegos","Cocheras","Bicicletero","WiFi en comunes"]},
+    "Moreno 323":      {"desc":"Edificio de categoría en España-Hospitales. Tipologías de 1, 2 y 3 dormitorios con materiales de primera línea. Full amenities, pisos y revestimientos premium.",
+                        "am":["Piscina","Carwash","Juegos infantiles","Plazoleta","Cocheras","Quincho"]},
+    "Moreno 1151":     {"desc":"Proyecto residencial en Refinería. Unidades de 1, 2 y 3 dormitorios. Terminaciones modernas y amenities completos.",
+                        "am":["Piscina","Quincho","Parrilla","Gimnasio","Cocheras"]},
+    "Ituzaingo 1852":  {"desc":"I·1846: 6 pisos, 16 unidades de 1 a 4 dormitorios y dúplex exclusivo en el corazón de Rosario. Balcones vegetados con riego automático, materiales premium, hogar inteligente y seguridad VIDEO WALL 24hs.",
+                        "am":["Piscina en azotea con cascada","Quincho con toilette","Solarium","Sector relax","Fitness Center","Sector outdoor","Cocheras con carga eléctrica","Bicicletero","Bauleras","WiFi en comunes"]},
+    "3 de Febrero 621":{"desc":"Complejo de dos torres, 51 unidades de 2 y 3 dormitorios en barrio Martín, a pasos del Parque Urquiza y el Monumento. Diseño con vegetación integrada, full amenities y equipamiento de categoría.",
+                        "am":["Piscina 7×3 m","Quincho Gourmet con parrilla","Fitness Center","Coworking con patio","Espacios kids","Canchita fútbol/básquet","Rooftop con fogonero","Carwash","Pet Shower","Bauleras","Bicicletero"]},
+    "Pueyrredon 1101": {"desc":"Edificio premiado internacionalmente. Pileta y solarium en pisos superiores. Laundry, bicicletero y monitoreo 24hs. Entrega inmediata.",
+                        "am":["Pileta","Solarium terraza","Quincho con parrilla","Laundry","Bicicletero","Monitoreo 24hs"]},
+    "Olive 954":       {"desc":"Río Arriba — 28 casas panorámicas en altura a metros del Parque Alem. Patios privados orientados al río. Espacios verdes y arquitectura de autor. Entrega inmediata.",
+                        "am":["Vista al río","Casas en altura","Espacios verdes","Quincho","Piscina","Parrillero"]},
+    "Guemes 2285":     {"desc":"Edificio en Pichincha con vista al río. Pisos exclusivos con terminaciones premium. Pileta, quincho y monitoreo 24hs. Listo para escriturar.",
+                        "am":["Pileta","Solarium","Quincho","Monitoreo 24hs","Vista al río","Listo para escriturar"]},
+    "Dorrego 635":     {"desc":"Oficina en planta baja con ingreso independiente, patio propio, cochera y baulera incluidos. Ideal para profesionales.",
+                        "am":["Ingreso independiente","Cochera","Baulera","Patio propio"]},
 }
+
+
+MESES = ["Enero","Febrero","Marzo","Abril","Mayo","Junio",
+         "Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"]
+
+def fmt_entrega(v):
+    """Convierte fecha (datetime o string) a 'Mes Año'. Ej: 'Septiembre 2028'."""
+    if v is None:
+        return ""
+    from datetime import datetime as _dt
+    if isinstance(v, _dt):
+        return f"{MESES[v.month-1]} {v.year}"
+    s = str(v).strip()
+    if not s or s in ("None", ""):
+        return ""
+    # Intentar parsear "YYYY-MM-DD ..." o "YYYY-MM-DD"
+    try:
+        d = _dt.strptime(s[:10], "%Y-%m-%d")
+        return f"{MESES[d.month-1]} {d.year}"
+    except Exception:
+        return s  # devolver tal cual si no se puede parsear
 
 
 def safe_float(v):
@@ -119,29 +153,28 @@ def read_disponibles(filepath):
         if len(row) < 10:
             continue
         empresa = str(row[1] or "").strip()
-        unidad  = str(row[8] or "").strip()
+        unidad  = str(row[7] or "").strip()
         if not unidad and not empresa:
             continue
         props.append({
             "id":          i + 1,
             "empresa":     empresa,
-            "proyecto":    str(row[2] or "").strip(),  # nombre comercial (Ceiba, Latitud 41...)
-            "zona":        str(row[4] or "").strip(),  # col 4: ZONA (Fisherton, Pichincha...)
-            "direccion":   str(row[5] or "").strip(),  # col 5: UBICACION (Wilde 455 Bis...)
-            "etapa":       str(row[6] or "").strip(),  # col 6: ETAPA
-            "entrega":     str(row[7] or "").strip(),  # col 7: F. ENTREGA
+            "zona":        str(row[3] or "").strip(),  # col 3: ZONA
+            "direccion":   str(row[4] or "").strip(),  # col 4: UBICACION
+            "etapa":       str(row[5] or "").strip(),  # col 5: ETAPA
+            "entrega":     fmt_entrega(row[6]),         # col 6: F. ENTREGA → "Mes Año"
             "unidad":      unidad,
-            "tipo":        str(row[9] or "").strip(),
-            "descripcion": str(row[10] or "").strip() if len(row) > 10 else "",
-            "sup_cub":     row[11] if len(row) > 11 else None,
-            "semi_cub":    row[12] if len(row) > 12 else None,
-            "sup_patio":   row[13] if len(row) > 13 else None,
-            "sup_total":   row[15] if len(row) > 15 else None,
-            "precio_lista": safe_float(row[16]) if len(row) > 16 else None,
-            "precio_cont":  safe_float(row[17]) if len(row) > 17 else None,
-            "usd_m2":       safe_float(row[18]) if len(row) > 18 else None,
-            "oportunidad":  str(row[20] or "").strip() if len(row) > 20 else "",  # col 20: OPORTUNIDAD
-            "notas":        str(row[21] or "").strip() if len(row) > 21 else "",  # col 21: NOTAS
+            "tipo":        str(row[8] or "").strip(),
+            "descripcion": str(row[9] or "").strip() if len(row) > 9 else "",
+            "sup_cub":     row[10] if len(row) > 10 else None,
+            "semi_cub":    row[11] if len(row) > 11 else None,
+            "sup_patio":   row[12] if len(row) > 12 else None,
+            "sup_total":   row[14] if len(row) > 14 else None,
+            "precio_lista": safe_float(row[15]) if len(row) > 15 else None,
+            "precio_cont":  safe_float(row[16]) if len(row) > 16 else None,
+            "usd_m2":       safe_float(row[17]) if len(row) > 17 else None,
+            "oportunidad":  str(row[19] or "").strip() if len(row) > 19 else "",  # col 19: OPORTUNIDAD
+            "notas":        str(row[20] or "").strip() if len(row) > 20 else "",  # col 20: NOTAS
         })
     return props
 
@@ -171,6 +204,12 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .frow{display:flex;gap:7px;align-items:center}
 select,input[type=number]{flex:1;border:1.5px solid var(--br);border-radius:9px;padding:9px 10px;font-size:15px;color:var(--txt);background:var(--bg);outline:none;-webkit-appearance:none;min-width:0}
 #brst{background:none;border:1.5px solid var(--br);border-radius:9px;padding:9px 14px;font-size:14px;color:var(--mu);cursor:pointer;flex-shrink:0;display:block}
+.fopp{display:flex;gap:6px;align-items:center}
+.fopp span{font-size:12px;color:var(--mu);white-space:nowrap;flex-shrink:0}
+.fbtn{border:1.5px solid var(--br);border-radius:20px;padding:5px 12px;font-size:12px;font-weight:700;cursor:pointer;background:none;color:var(--mu)}
+.fbtn.act-alta{background:#fef2f2;color:#991b1b;border-color:#fca5a5}
+.fbtn.act-med{background:#fef3e2;color:#92400e;border-color:#fcd34d}
+.fbtn.act-baj{background:#f0fdf4;color:#166534;border-color:#86efac}
 .list{padding:10px 10px 80px}
 a.card{display:flex;align-items:stretch;width:100%;text-align:left;background:var(--wh);border-radius:var(--r);margin-bottom:9px;box-shadow:0 1px 5px rgba(0,0,0,.08);overflow:hidden;border:none;border-left:4px solid #dde3ec;cursor:pointer;padding:0;text-decoration:none;color:var(--txt)}
 a.card:active{opacity:.75}
@@ -257,6 +296,12 @@ a.btnmap{display:flex;align-items:center;justify-content:center;gap:8px;backgrou
       <select id="fe"><option value="">Ambas</option><option>M2</option><option>OBRING</option></select>
       <button id="brst" type="button">X</button>
     </div>
+    <div class="fopp">
+      <span>Oportunidad:</span>
+      <button class="fbtn" id="fo-alta" type="button" data-opp="Alta">Alta</button>
+      <button class="fbtn" id="fo-med"  type="button" data-opp="Media">Media</button>
+      <button class="fbtn" id="fo-baj"  type="button" data-opp="Baja">Baja</button>
+    </div>
   </div>
   <div class="list" id="list"></div>
 </div>
@@ -293,12 +338,19 @@ function getEd(d){return EDIF[d]||null;}
 function fP(n){if(n==null)return '--';return 'U$S '+Math.round(n).toString().replace(/\B(?=(\d{3})+(?!\d))/g,'.');}
 function fN(n,s){if(n==null||n===''||n==='null')return null;return Number(n).toString().replace(/\B(?=(\d{3})+(?!\d))/g,'.')+(s||'');}
 function tc(t){t=(t||'').toLowerCase();if(/dorm|mono|estudio|loft/.test(t))return 'cd';if(/cochera/.test(t))return 'cc';if(/baulera/.test(t))return 'cb';return 'co';}
+var _activeOpp='';
+function setOpp(v){
+  _activeOpp=(_activeOpp===v)?'':v;
+  ['alta','med','baj'].forEach(function(k){document.getElementById('fo-'+k).className='fbtn';});
+  if(_activeOpp){var km={'Alta':'alta','Media':'med','Baja':'baj'};document.getElementById('fo-'+km[_activeOpp]).className='fbtn act-'+km[_activeOpp];}
+  go();
+}
 function go(){
   try{
   var tipo=document.getElementById('ft').value,zona=document.getElementById('fz').value,emp=document.getElementById('fe').value;
   var mn=parseFloat(document.getElementById('fmn').value)||0,mx=parseFloat(document.getElementById('fmx').value)||Infinity;
   var f=[];
-  for(var i=0;i<DATA.length;i++){var p=DATA[i];if(tipo&&p.tipo!==tipo)continue;if(zona&&p.zona!==zona)continue;if(emp&&p.empresa!==emp)continue;var pr=p.precio_cont||p.precio_lista||0;if(pr<mn||pr>mx)continue;f.push(p);}
+  for(var i=0;i<DATA.length;i++){var p=DATA[i];if(tipo&&p.tipo!==tipo)continue;if(zona&&p.zona!==zona)continue;if(emp&&p.empresa!==emp)continue;var pr=p.precio_cont||p.precio_lista||0;if(pr<mn||pr>mx)continue;if(_activeOpp&&p.oportunidad!==_activeOpp)continue;f.push(p);}
   document.getElementById('cnt').textContent=f.length;
   if(!f.length){document.getElementById('list').innerHTML='<div style="text-align:center;padding:60px 20px;color:#6b7a8d"><p style="font-size:15px;font-weight:600">Sin resultados</p></div>';return;}
   var h='';
@@ -310,13 +362,13 @@ function go(){
     var sup=p.sup_total||p.sup_cub;if(sup)tags+=' <span class="tag">'+sup+'m2</span>';
     if(p.entrega)tags+=' <span class="tag">Entrega '+p.entrega+'</span>';
     if(p.notas==='INVERSOR')tags+=' <span class="tag ti">INVERSOR</span>';
-    h+='<a class="card '+tc(p.tipo)+'" href="javascript:void(0)" data-id="'+p.id+'">'+thumb+'<div class="cbd"><div class="crow"><div><div class="cname">'+p.empresa+' &middot; '+(p.unidad||p.proyecto)+'</div><div class="caddr">&#128205; '+p.direccion+'</div></div><div class="cprice"><div class="pco">'+fP(pr)+'</div>'+(tl?'<div class="pli">'+fP(p.precio_lista)+'</div>':'')+'</div></div><div class="tags">'+tags+'</div></div></a>';
+    h+='<a class="card '+tc(p.tipo)+'" href="javascript:void(0)" data-id="'+p.id+'">'+thumb+'<div class="cbd"><div class="crow"><div><div class="cname">'+p.empresa+' &middot; '+(p.unidad||p.direccion)+'</div><div class="caddr">&#128205; '+p.direccion+'</div></div><div class="cprice"><div class="pco">'+fP(pr)+'</div>'+(tl?'<div class="pli">'+fP(p.precio_lista)+'</div>':'')+'</div></div><div class="tags">'+tags+'</div></div></a>';
   }
   document.getElementById('list').innerHTML=h;
   }catch(e2){dbg('go: '+e2.message);}
 }
 function dbg(msg){var el=document.getElementById('dbg');el.style.display='block';el.textContent='ERROR: '+msg;}
-function rst(){['ft','fz','fe'].forEach(function(id){document.getElementById(id).value='';});['fmn','fmx'].forEach(function(id){document.getElementById(id).value='';});go();}
+function rst(){['ft','fz','fe'].forEach(function(id){document.getElementById(id).value='';});['fmn','fmx'].forEach(function(id){document.getElementById(id).value='';});_activeOpp='';['alta','med','baj'].forEach(function(k){document.getElementById('fo-'+k).className='fbtn';});go();}
 function dr(k,v){if(!v||v==='--'||v==='null'||!(v+'').trim())return '';return '<div class="dr"><span class="dk">'+k+'</span><span class="dv">'+v+'</span></div>';}
 function openD(id){
   try{
@@ -328,16 +380,17 @@ function openD(id){
   if(img){ie.src=img;ie.style.display='block';ph.style.display='none';}else{ie.src='';ie.style.display='none';ph.style.display='flex';}
   var gc='';for(var g=0;g<4;g++){gc+=gal[g]?('<div class="hcell"><img src="'+gal[g]+'" alt="" loading="lazy"></div>'):'<div class="hcell"><div class="hcph">&#128247;</div></div>';}
   document.getElementById('hgrid').innerHTML=gc;
-  document.getElementById('dtit').textContent=p.empresa+' - '+(p.unidad||p.proyecto);
+  document.getElementById('dtit').textContent=p.empresa+' - '+(p.unidad||p.direccion);
   document.getElementById('dsub').textContent=p.tipo+' - '+dir+(p.zona?' - '+p.zona:'');
   var mu='https://maps.google.com/maps?q='+encodeURIComponent(dir+', Rosario, Argentina');
   var h='<div class="pbox"><div class="lbl">Precio contado</div><div class="pco2">'+fP(p.precio_cont||p.precio_lista)+'</div>'+(p.precio_lista&&p.precio_cont&&p.precio_lista!==p.precio_cont?'<div class="pli2">Lista: '+fP(p.precio_lista)+'</div>':'')+(p.usd_m2?'<div class="pm2">'+Math.round(p.usd_m2).toString().replace(/\B(?=(\d{3})+(?!\d))/g,'.')+' U$S/m2</div>':'')+'</div>';
   h+='<a class="btnmap" href="'+mu+'" target="_blank" rel="noopener">&#128205; Ver en mapa - '+dir+'</a>';
   if(ed&&ed.desc)h+='<div class="sec"><h3>Sobre el edificio</h3><p class="desc">'+ed.desc+'</p></div>';
-  if(ed&&ed.am&&ed.am.length){var ams='';for(var a=0;a<ed.am.length;a++){ams+='<div class="am">'+ed.am[a]+'</div>';}h+='<div class="sec"><h3>Amenities</h3><div class="agrid">'+ams+'</div></div>';}
-  h+='<div class="sec"><h3>Unidad</h3>'+dr('Tipo',p.tipo)+dr('Empresa',p.empresa)+dr('Proyecto',p.proyecto)+dr('Etapa',p.etapa)+dr('Entrega',p.entrega)+(p.descripcion?dr('Descripcion',p.descripcion):'')+'</div>';
-  var s='';if(p.sup_cub)s+=dr('Sup. Cubierta',fN(p.sup_cub,' m2'));if(p.semi_cub)s+=dr('Semi Cubierta',fN(p.semi_cub,' m2'));if(p.sup_patio)s+=dr('Patio/Balcon',fN(p.sup_patio,' m2'));if(p.sup_total)s+=dr('Total',fN(p.sup_total,' m2'));
+  if(ed&&ed.am&&ed.am.length){var ams='';for(var a=0;a<ed.am.length;a++){ams+='<div class="am">&#10003; '+ed.am[a]+'</div>';}h+='<div class="sec"><h3>Amenities</h3><div class="agrid">'+ams+'</div></div>';}
+  h+='<div class="sec"><h3>Unidad</h3>'+dr('Tipo',p.tipo)+dr('Empresa',p.empresa)+dr('Etapa',p.etapa)+dr('Entrega',p.entrega)+'</div>';
+  var s='';if(p.sup_cub)s+=dr('Sup. Cubierta',fN(p.sup_cub,' m2'));if(p.semi_cub)s+=dr('Semi Cubierta',fN(p.semi_cub,' m2'));if(p.sup_patio)s+=dr('Patio / Balcón',fN(p.sup_patio,' m2'));if(p.sup_total)s+=dr('Total',fN(p.sup_total,' m2'));
   if(s)h+='<div class="sec"><h3>Superficies</h3>'+s+'</div>';
+  if(p.descripcion&&(p.descripcion+'').trim())h+='<div class="sec"><h3>Descripción</h3><p class="desc">'+p.descripcion+'</p></div>';
   var ob='',om={'Alta':'alta','Media':'med','Baja':'baj'};
   if(p.oportunidad)ob+=dr('Oportunidad','<span class="b2 '+(om[p.oportunidad]||'med')+'">'+p.oportunidad+'</span>');
   if(p.notas==='INVERSOR')ob+=dr('Perfil','<span class="b2 inv">INVERSOR</span>');
@@ -356,6 +409,9 @@ document.getElementById('fe').addEventListener('change',go);
 document.getElementById('fmn').addEventListener('input',go);
 document.getElementById('fmx').addEventListener('input',go);
 document.getElementById('brst').addEventListener('click',rst);
+document.getElementById('fo-alta').addEventListener('click',function(){setOpp('Alta');});
+document.getElementById('fo-med').addEventListener('click',function(){setOpp('Media');});
+document.getElementById('fo-baj').addEventListener('click',function(){setOpp('Baja');});
 document.getElementById('btnb').addEventListener('click',function(){document.getElementById('vDetalle').style.display='none';document.getElementById('vLista').style.display='block';window.scrollTo(0,_savedScroll);});
 document.getElementById('list').addEventListener('click',function(e){var el=e.target;while(el&&el!==this){if(el.dataset&&el.dataset.id){openD(el.dataset.id);return;}el=el.parentElement;}});
 go();
@@ -369,7 +425,7 @@ RIMGS = {
     "Entre Rios 430":  "https://m2desarrollos.com.ar/wp-content/uploads/2026/01/Entre-Rios-430-28.webp",
     "Wilde 455 Bis":   "https://m2desarrollos.com.ar/wp-content/uploads/2026/01/Barrio-Entre-Rios-430-1.webp",
     "Pueyrredon 1101": "https://m2desarrollos.com.ar/wp-content/uploads/2026/01/BARRIO-PELLEGRINI-932-5.webp",
-    "Olive 954":       "https://m2desarrollos.com.ar/wp-content/uploads/2026/01/Barrio-Entre-Rios-430-3.webp",
+    "Olive 954":       "https://m2ddesarrollos.com.ar/wp-content/uploads/2026/01/Barrio-Entre-Rios-430-3.webp",
     "Guemes 2285":     "https://m2desarrollos.com.ar/wp-content/uploads/2026/01/Entre-Rios-430-26.webp",
 }
 
@@ -386,7 +442,6 @@ def main():
 
     print(f"\nLeyendo propiedades de {os.path.basename(disp_file)}...")
 
-    # DEBUG: imprimir headers y primera fila
     wb_dbg = openpyxl.load_workbook(disp_file, data_only=True)
     ws_dbg = wb_dbg.active
     rows_dbg = list(ws_dbg.iter_rows(min_row=1, max_row=2, values_only=True))
@@ -419,7 +474,6 @@ def main():
         match = best_match(prefix_upper, direcciones)
         label = match if match else f"?? {prefix_upper}"
 
-        # Fachada
         if imgs["fachada"]:
             enc = encode_img(imgs["fachada"], 400, 300, 72)
             if enc:
@@ -431,7 +485,6 @@ def main():
         else:
             print(f"  SIN FACHADA  {label}")
 
-        # Galeria (max 4)
         gal = []
         for gpath in imgs["gallery"][:4]:
             enc = encode_img(gpath, 320, 240, 68)
@@ -444,7 +497,6 @@ def main():
     print(f"\n  Fachadas embebidas:  {len(limgs)}")
     print(f"  Galerias embebidas:  {len(gallery)}")
 
-    # Sin match
     sin_match = [k for k in img_data if not best_match(k, direcciones)]
     if sin_match:
         print(f"\n  AVISO - Sin match en DISPONIBLES.xlsx:")
@@ -476,6 +528,12 @@ def main():
     if sin_match:
         print(f"  OJO: {len(sin_match)} edificios sin match en DISPONIBLES.xlsx")
         print("  Verificar que las direcciones coincidan exactamente.")
+    print("=" * 55)
+
+
+if __name__ == "__main__":
+    main()
+ue las direcciones coincidan exactamente.")
     print("=" * 55)
 
 

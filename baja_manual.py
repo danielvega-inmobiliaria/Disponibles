@@ -24,21 +24,21 @@ HISTORIAL_FILE  = os.path.join(DISPONIBLES_DIR, "vendidas.json")
 
 # ─── COLUMNAS EN DISPONIBLES.xlsx (0-based) ───────────────────────────────────
 C_EMPRESA      = 1
-C_PROYECTO     = 2
-C_ZONA         = 4
-C_UBICACION    = 5
-C_ETAPA        = 6
-C_ENTREGA      = 7
-C_UNIDAD       = 8
-C_TIPO         = 9
-C_SUP_CUB      = 11
-C_SUP_TOTAL    = 15
-C_PRECIO_LISTA = 16
-C_PRECIO_CONT  = 17
-C_USD_M2       = 18
-C_OPORTUNIDAD  = 20
-C_NOTAS        = 21
-TOTAL_COLS     = 22
+# C_PROYECTO eliminado — se usa UBICACIÓN como identificador
+C_ZONA         = 3
+C_UBICACION    = 4
+C_ETAPA        = 5
+C_ENTREGA      = 6
+C_UNIDAD       = 7
+C_TIPO         = 8
+C_SUP_CUB      = 10
+C_SUP_TOTAL    = 14
+C_PRECIO_LISTA = 15
+C_PRECIO_CONT  = 16
+C_USD_M2       = 17
+C_OPORTUNIDAD  = 19
+C_NOTAS        = 20
+TOTAL_COLS     = 21
 
 
 # ─── UTILIDADES ───────────────────────────────────────────────────────────────
@@ -94,7 +94,6 @@ def read_disponibles():
             "fila":        i,
             "empresa":     empresa,
             "unidad":      unidad,
-            "proyecto":    str(row[C_PROYECTO]  or "").strip(),
             "zona":        str(row[C_ZONA]       or "").strip(),
             "ubicacion":   str(row[C_UBICACION]  or "").strip(),
             "etapa":       str(row[C_ETAPA]      or "").strip(),
@@ -135,7 +134,6 @@ def agregar_a_historial(props_eliminadas, motivo):
             "motivo":       motivo,
             "empresa":      p.get("empresa",""),
             "unidad":       p.get("unidad",""),
-            "proyecto":     p.get("proyecto",""),
             "ubicacion":    p.get("ubicacion",""),
             "zona":         p.get("zona",""),
             "etapa":        p.get("etapa",""),
@@ -184,7 +182,7 @@ def baja_manual():
         elif op == "2":
             busq = input("  Direccion (parcial): ").strip().upper()
             resultados = [p for p in props
-                          if busq in p["ubicacion"].upper() or busq in p["proyecto"].upper()]
+                          if busq in p["ubicacion"].upper()]
         else:
             continue
 
@@ -195,7 +193,7 @@ def baja_manual():
         print(f"\n  {'#':<4} {'Empresa':<8} {'Unidad':<14} {'Ub./Proyecto':<25} {'Tipo':<16} {'Precio'}")
         print(f"  {'-'*4} {'-'*8} {'-'*14} {'-'*25} {'-'*16} {'-'*14}")
         for i, p in enumerate(resultados, 1):
-            ref = (p["ubicacion"] or p["proyecto"])[:25]
+            ref = p["ubicacion"][:25]
             print(f"  {i:<4} {p['empresa']:<8} {p['unidad']:<14} {ref:<25} {p['tipo'][:16]:<16} {fmt_precio(p['precio_cont'])}")
 
         print(f"\n  Numeros a dar de baja (ej: 1,3) o Enter para cancelar:")
@@ -214,7 +212,7 @@ def baja_manual():
 
         print(f"\n  DAR DE BAJA:")
         for p in seleccionadas:
-            ref = (p["ubicacion"] or p["proyecto"])[:30]
+            ref = p["ubicacion"][:30]
             print(f"    {p['empresa']} | {p['unidad']:14} | {ref} | {fmt_precio(p['precio_cont'])}")
 
         motivo = input("\n  Motivo (venta / error / otro): ").strip() or "venta_manual"
@@ -250,7 +248,6 @@ def alta_manual():
         return
 
     empresa   = pedir("Empresa * (M2 / OBRING / OTRO)", requerido=True).upper()
-    proyecto  = pedir("Proyecto (nombre comercial, ej: Ceiba)")
     zona      = pedir("Zona (ej: Fisherton, Centro, Pichincha)")
     ubicacion = pedir("Direccion * (ej: Wilde 455 Bis)", requerido=True)
     etapa     = pedir("Etapa")
@@ -272,7 +269,6 @@ def alta_manual():
 
     print(f"\n  RESUMEN:")
     print(f"  Empresa:    {empresa}")
-    print(f"  Proyecto:   {proyecto}")
     print(f"  Zona:       {zona}")
     print(f"  Direccion:  {ubicacion}")
     print(f"  Unidad:     {unidad}  |  Tipo: {tipo}")
@@ -289,7 +285,6 @@ def alta_manual():
 
     nueva_fila = [""] * TOTAL_COLS
     nueva_fila[C_EMPRESA]      = empresa
-    nueva_fila[C_PROYECTO]     = proyecto
     nueva_fila[C_ZONA]         = zona
     nueva_fila[C_UBICACION]    = ubicacion
     nueva_fila[C_ETAPA]        = etapa
@@ -345,7 +340,7 @@ def reactivar_desde_historial():
     print(f"  {'-'*4} {'-'*12} {'-'*8} {'-'*14} {'-'*25} {'-'*14}")
     for i, h in enumerate(candidatas, 1):
         fecha = h.get("fecha_baja","")[:10]
-        ref   = (h.get("ubicacion","") or h.get("proyecto",""))[:25]
+        ref   = h.get("ubicacion","")[:25]
         print(f"  {i:<4} {fecha:<12} {h.get('empresa',''):<8} {h.get('unidad','')[:14]:<14} {ref:<25} {fmt_precio(h.get('precio_cont'))}")
 
     print(f"\n  Numero a reactivar o Enter para cancelar:")
@@ -359,7 +354,7 @@ def reactivar_desde_historial():
         print("  Seleccion invalida.")
         return
 
-    print(f"\n  Reactivar: {h.get('empresa')} | {h.get('unidad')} | {h.get('ubicacion') or h.get('proyecto')}")
+    print(f"\n  Reactivar: {h.get('empresa')} | {h.get('unidad')} | {h.get('ubicacion')}")
     print(f"  Los datos se restauran del historial. Podes modificar el precio:")
     nuevo_cont  = pedir_precio("Precio contado U$S (Enter para mantener el historico)")
     nuevo_lista = pedir_precio("Precio lista U$S   (Enter para mantener el historico)")
@@ -381,7 +376,6 @@ def reactivar_desde_historial():
 
     nueva_fila = [""] * TOTAL_COLS
     nueva_fila[C_EMPRESA]      = h.get("empresa","")
-    nueva_fila[C_PROYECTO]     = h.get("proyecto","")
     nueva_fila[C_ZONA]         = h.get("zona","")
     nueva_fila[C_UBICACION]    = h.get("ubicacion","")
     nueva_fila[C_ETAPA]        = h.get("etapa","")
@@ -429,7 +423,7 @@ def _ver_historial():
     for h in historial[-60:]:
         fecha = h.get("fecha_baja","")[:10]
         est   = "OK" if h.get("fecha_reactivacion") else "BAJA"
-        ref   = (h.get("ubicacion","") or h.get("proyecto",""))[:25]
+        ref   = h.get("ubicacion","")[:25]
         precio = h.get("precio_cont")
         ps = f"U$S {int(precio):,}".replace(",",".") if precio else "—"
         print(f"  {fecha:<12} {est:<5} {h.get('empresa',''):<8} {h.get('unidad','')[:14]:<14} {ref:<25} {ps}")

@@ -6,4 +6,12 @@ DISPONIBLES.xlsx
 
 # Backups de Excel generados automaticamente
 DISPONIBLES_bak_*.xlsx
-DISPONIB
+DISPONIBLES_actualizado_*.xlsx
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Windows
+Thumbs.db
+desktop.ini
